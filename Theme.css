@@ -153,8 +153,20 @@
 :root[data-theme] .sidebar { border-right: 1px solid rgba(143, 211, 232, 0.18); }
 :root[data-theme] .splitter-x { background-color: transparent !important; }
 :root[data-theme] .tab-bar { box-shadow: none; }
+
+:root[data-theme] .start .hero h1::after {
+  color: #ffffff;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-shadow: 0 0 16px rgba(143, 211, 232, 0.6);
+}
+
+/* Tabs. */
 :root[data-theme] .tab-bar .strip .tab { background-image: none; }
-:root[data-theme] .tab-bar .strip .tab::before { display: none; }
+:root[data-theme] .tab-bar .strip .tab::before,
+:root[data-theme] .tab-bar .strip .tab::after { display: none; top: auto; width: auto; }
+
+/* A short ice-blue light under the active tab. */
 :root[data-theme] .tab-bar .strip .tab.is-active { color: #ffffff; }
 :root[data-theme] .tab-bar .strip .tab.is-active::after {
   content: "";
@@ -169,11 +181,12 @@
   box-shadow: 0 0 8px #8fd3e8;
 }
 
-:root[data-theme] .start .hero h1::after {
-  color: #ffffff;
-  font-weight: 400;
-  letter-spacing: 0.3em;
-  text-shadow: 0 0 16px rgba(143, 211, 232, 0.6);
+/* Script tab icon. */
+:root[data-theme] .tab-bar .strip .tab:not(.no-close) .tab-glyph > * { display: none; }
+:root[data-theme] .tab-bar .strip .tab:not(.no-close) .tab-glyph {
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E") center / 16px 16px no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E") center / 16px 16px no-repeat;
 }
 
 /* Animated wallpaper behind the whole app. */
